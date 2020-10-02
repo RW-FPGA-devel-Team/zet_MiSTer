@@ -316,6 +316,8 @@ kotku  kotku
 	.blue                (rgb_b),
 	.tft_lcd_hsync_      (hs),
 	.tft_lcd_vsync_      (vs),
+	.horiz_blank         (HBlank),
+	.vert_blank          (VBlank),
 	
 	//Reset
 	.reset               (reset),
@@ -354,9 +356,9 @@ wire [3:0] rgb_b;
 
 assign HSync = hs;
 assign VSync = vs;
-assign Rx  = {rgb_r,rgb_r,rgb_r[2:1]};
-assign Gx  = {rgb_g,rgb_g,rgb_g[2:1]};
-assign Bx  = {rgb_b,rgb_b,rgb_b[2:1]};
+assign Rx  = {rgb_r,rgb_r};
+assign Gx  = {rgb_g,rgb_g};
+assign Bx  = {rgb_b,rgb_b};
 
 wire ce_sys = clk_sys;
 reg [1:0] ce_sys2;

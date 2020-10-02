@@ -63,7 +63,8 @@ module vga_pal_dac_fml (
     output reg       horiz_sync,
     output           vert_sync,
     output           vga_blank,
-
+    output           horiz_blank,
+	 output           vert_blank,
     // retrace signals
     output v_retrace,
     output vh_retrace
@@ -82,6 +83,9 @@ module vga_pal_dac_fml (
 
   wire video_on_h;
 
+  assign horiz_blank= ! video_on_h;
+  assign vert_blank= ! video_on_v;
+  
   reg [1:0] horiz_sync_p;
   
   wire [3:0] red;

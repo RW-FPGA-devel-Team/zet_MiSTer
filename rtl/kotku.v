@@ -23,10 +23,10 @@ module kotku (
 	//input         clk_50_,
 	
 	// SPI FLASH (M25P16)
-	input         data0_,	//MISO	
-	output        ncso_, //CS
-	output        dclk_, //CLK
-	output        asdo_,	//MOSI	
+//	input         data0_,	//MISO	
+//	output        ncso_, //CS
+//	output        dclk_, //CLK
+//	output        asdo_,	//MOSI	
 
    //clocks
 	
@@ -85,6 +85,8 @@ module kotku (
 	output [3:0]  blue,
 	output        tft_lcd_hsync_,
 	output        tft_lcd_vsync_,
+	output        horiz_blank,
+	output        vert_blank,
 	
 	// To expansion header
 	output        speaker_l_,   // Speaker output, left channel
@@ -455,11 +457,11 @@ module kotku (
     .wb_we_i  (fl_we_i),        // Write enable
     .wb_ack_o (fl_ack_o),       // Normal bus termination
 
-    // Pad signals
-    .NCSO (ncso_),
-    .DCLK (dclk_),
-    .ASDO (asdo_),
-    .DATA0 (data0_)
+//    // Pad signals
+//    .NCSO (ncso_),
+//    .DCLK (dclk_),
+//    .ASDO (asdo_),
+//    .DATA0 (data0_)
   );
 
   wb_abrgr wb_fmlbrg (
@@ -732,6 +734,8 @@ module kotku (
     .horiz_sync  (tft_lcd_hsync_),
     .vert_sync   (tft_lcd_vsync_),
     .vga_blank   (tft_lcd_blank_),
+	 .horiz_blank (horiz_blank),
+	 .vert_blank  (vert_blank),
 
     // VGA CPU FML master interface
     .vga_cpu_fml_adr(vga_cpu_fml_adr),

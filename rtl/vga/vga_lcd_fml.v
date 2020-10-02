@@ -69,6 +69,8 @@ module vga_lcd_fml #(
     output       horiz_sync,
     output       vert_sync,
     output       vga_blank,
+	 output       horiz_blank,
+	 output       vert_blank,
     
     // Base address of video memory
     input [15:0] start_addr,
@@ -289,7 +291,8 @@ module vga_lcd_fml #(
     .horiz_sync (horiz_sync),
     .vert_sync (vert_sync),
     .vga_blank (vga_blank),
-
+    .horiz_blank (horiz_blank),
+	 .vert_blank  (vert_blank),
     // retrace signals
     .v_retrace (v_retrace),
     .vh_retrace (vh_retrace)
